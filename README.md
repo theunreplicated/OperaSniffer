@@ -25,7 +25,7 @@ At the current state, it supports more than 100 apps.
 
 5.Then the dialog from Opera should appear, press "Install"
 
-
+6.Enjoy!!!
 
 
 
