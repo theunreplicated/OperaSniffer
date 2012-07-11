@@ -31,7 +31,7 @@ At the current state, it supports more than 100 apps.
 
 
 
-
+============
 
 
 yes, i know,the code is very crappy(it's written fast but with many problems),so I'm going to rewrite it
