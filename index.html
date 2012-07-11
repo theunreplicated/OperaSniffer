@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>document.title in popup</title>.
+    <script src="apps.js"></script>
+	<script>
+	
+	var appsdata={};
+	var lastdata;
+	var btn;
+	var is_opened;window.button;
+	var tab = opera.extension.tabs.getFocused();
+		window.addEventListener('load', function(){
+			// create the toolbar button
+			window.button = {
+				disabled: false,
+				title: "OperaSniffer",
+				popup: {
+					href: "popup.html",
+					width: 500,
+					height: 500
+				}
+			};
+			 btn = opera.contexts.toolbar.createItem(window.button);
+			//opera.contexts.toolbar.addItem(btn);
+			
+
+	
+			var popup;
+			var start;
+			
+			function getApps(url){
+				
+				return appsdata[url];
+				}
+			
+var prepareData=function(c){
+apps={};
+	for(current in c){
+		//toreturn+="appinfo"+appinfo[current].url;
+		
+		apps[current]=[];
+		apps[current][0]=current;
+		apps[current][1]=c[current];
+		apps[current][2]=appinfo[current].url;
+		apps[current][3]=appinfo[current].icon;
+		apps[current][4]=appinfo[current].priority;
+		//apps=appinfo[current].url;
+		//appsobj.prototype.current.icon=appinfo[current].icon;
+		
+		
+		
+		}
+return apps;
+	}
+	
+	
+opera.extension.onmessage=function(e){
+	if(e.data.msg=="data"){
+		var tab_url=e.data.src.replace(/#.*$/, '');
+		appsdata[tab_url];
+		 appsdata[tab_url]=(e.data.content)? prepareData(e.data.content):false;
+		 opera.postError(JSON.stringify(appsdata));
+		//popup.postMessage({msg:"showData",data:d});
+		//e.source.postMessage({msg:"alert",content:"blub"});
+		
+		 is_opened=true;
+		 if(appsdata !==false){
+		 opera.contexts.toolbar.addItem(btn);}
+		 
+		}else  if(e.data.msg=="auth"){
+			var t=opera.extension.tabs.getFocused();
+			
+			if(t){
+			t.postMessage({msg:"backauth",content:"succeed"});}
+			
+			}
+			
+	else if(e.data.msg="unload"){
+		
+		opera.contexts.toolbar.removeItem(btn);
+		opera.postError("removeCalled");
+	}
+	
+	
+	
+	
+	}
+
+		}, false);
+		
+		function getActiveTabURL() {
+			opera.postError("called");
+	return opera.extension.tabs.getFocused() && opera.extension.tabs.getFocused().url;
+}
+	
+		
+		
+
+			
+					
+	
+	</script>
+</head>
+</html>

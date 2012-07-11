@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="https://addons.opera.com/addons/extensions/details/">
+	<name>OperaSniffer</name>
+	<description xml:lang="en">>tries to detect the used web applications and javascript libraries on a website</description>
+  	<author href="https://github.com/theunreplicated/OperaSniffer/">theunreaplicated</author>
+</widget>

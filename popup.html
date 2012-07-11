@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Apps Popup</title>
+		<meta charset="utf-8"/>
+       
+		<style>
+        .image{
+			width:16px;height:16px;
+			
+			
+			}</style>
+	</head>
+	<body>
+		
+        <script type="text/javascript">
+var bg = opera.extension.bgProcess;
+		
+		var apps = bg.appsdata[bg.getActiveTabURL().replace(/#.*$/, '')];
+		
+		
+		if(apps !==false){
+	if(apps!==undefined){
+		
+		
+		
+		
+	var createhtml="";
+	document.write("<div id='results>'");
+	for (var key in apps) {
+		
+	createhtml+='<a href="'+apps[key][2]+'" title="'+apps[key][0]+((apps[key][1] !== -1)? ' '+apps[key][1]:'')+'">'+'<img src="apps-icons/'+apps[key][3]+'" class="image">'+'</img></a>';	
+		
+	}document.write(createhtml);
+	
+	document.write("</div>");
+	}
+	else{
+		
+		document.write('<div id="results">Noch nicht getestet</div>');
+		}}
+		
+		else{
+			
+			document.write('<div id="results">Keine Apps gefunden</div>');
+			}
+			
+		</script>
+	</body>
+</html>
