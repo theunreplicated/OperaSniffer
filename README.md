@@ -4,7 +4,7 @@ OperaSniffer
 **OperaSniffer is an extension for Opera which tries to detect the used web applications and javascript libraries on a website.**
 It's similar to ChromeSniffer and uses its detection mechanism.
 
-At the current state, it supports more than 100 apps.
+At the current state, it supports more than 100 apps.Examples are Drupal,jQuery,GClosure,GWT,Joomla,Typo3,Ajax.hub,Prototype,...
 
 
 
